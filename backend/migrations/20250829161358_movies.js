@@ -4,12 +4,11 @@
  */
 exports.up = function(knex) {
   return knex.schema.createTable('favorites', table => {
-    table.increments();
-    table.string('title');
-    table.string('main_character');
-    table.string('year_released')
+    table.increments()
+    table.string('title')
+    table.string('main_character')
+    table.string('release_date')
   })
-
 };
 
 /**
