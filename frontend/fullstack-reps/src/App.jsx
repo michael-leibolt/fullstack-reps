@@ -22,6 +22,14 @@ function App() {
       <>
 
       {console.log(favs)}
+      {favs.map(film =>
+        <div key={film.id}>
+          <div>{film.id}</div>
+          <div>{film.title}</div>
+          <div>{film.main_character}</div>
+          <div>{film.year_released}</div>
+        </div>
+      )}
 
         <div>
           <a href="https://vite.dev" target="_blank">
