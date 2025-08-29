@@ -7,9 +7,8 @@ exports.up = function(knex) {
     table.increments();
     table.string('title');
     table.string('main_character');
-    table.string('year_released')
+    table.string('release_date');
   })
-
 };
 
 /**

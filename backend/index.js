@@ -2,17 +2,17 @@ require('dotenv').config()
 
 const express = require('express')
 const cors = require('cors')
-const knex = require('knex')( require('./knexfile')[process.env.NODE_ENV])
 const app = express()
 const port = process.env.EXPRESS_PORT
+const knex = require('knex')( require('./knexfile')[process.env.NODE_ENV])
 
-app.use(cors())
 app.use(express.json())
+app.use(cors())
 
-app.listen(port, () => `Express has started on ${port}`)
+app.listen(port, () => console.log(`Express has started on ${port}`))
 
-app.get('/', (req, res) => {
-  res.send('Movies API')
+app.get('/', (req,res) => {
+  res.status(200).send('Express works')
 })
 
 app.get('/movies', (req,res) => {
@@ -24,10 +24,7 @@ app.get('/movies', (req,res) => {
   })
   .catch(err => {
     if(err){
-      res.status(404).send(`Database is unable to respond to that request \n ${err}`)
+      res.status(404).send(`DB is unable to get that data \n ${err}`)
     }
   })
-
-
 })
-
